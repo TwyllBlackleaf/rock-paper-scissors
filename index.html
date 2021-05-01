@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1 style="text-align:center; margin-top:20%;">
+      Let's play Rock Paper Scissors!<br />Refresh to play again!
+    </h1>
+    <script type="text/javascript">
+      // TODO: Create an array of the three game choices (Rock, Paper, or Scissors).
+      var gameChoices = ["Rock", "Paper", "Scissors"];
+
+      // TODO: Create variables to hold the number of wins, losses, and ties. They start at 0.
+      var wins = 0
+      var losses = 0
+      var ties = 0
+
+      for (var i = 0; i < 3; i++) {
+        // TODO: Randomly choose a choice from the gameChoices array. This is the computer's turn.
+        var computerTurn = gameChoices[Math.floor(Math.random() * 3)];
+
+        // TODO: Collect the user's response and convert to lower case. This is the user's turn.
+        var userTurn = window.prompt("Type R for Rock, P for Paper, or S for Scissors.").toLowerCase();
+        if (userTurn.length > 1) {
+          userTurn = userTurn[0];
+        }
+
+        // TODO: Create the game logic to run if the user chooses a valid game choice
+        var gameLogic = function() {
+        switch (userTurn) {
+          case "r":
+            switch (computerTurn) {
+              case "Rock":
+                window.alert("You chose Rock. Computer chose Rock. You tied!");
+                ties++;
+                break;
+              case "Paper":
+                window.alert("You chose Rock. Computer chose Paper. You lost!");
+                losses++;
+                break;
+              case "Scissors":
+                window.alert("You chose Rock. Computer chose Scissors. You won!");
+                wins++;
+                break;
+            }
+            break;
+          case "p":
+            switch (computerTurn) {
+              case "Rock":
+                window.alert("You chose Paper. Computer chose Rock. You won!");
+                wins++;
+                break;
+              case "Paper":
+                window.alert("You chose Paper. Computer chose Paper. You tied!");
+                ties++;
+                break;
+              case "Scissors":
+                window.alert("You chose Paper. Computer chose Scissors. You lost!");
+                losses++;
+                break;
+            }
+            break;
+          case "s":
+            switch (computerTurn) {
+              case "Rock":
+                window.alert("You chose Scissors. Computer chose Rock. You lost!");
+                losses++;
+                break;
+              case "Paper":
+                window.alert("You chose Scissors. Computer chose Paper. You won!");
+                wins++;
+                break;
+              case "Scissors":
+                window.alert("You chose Scissors. Computer chose Scissors. You tied!");
+                ties++;
+                break;
+            }
+            break;
+          default:
+            window.alert("Please enter a valid command.");
+            gameLogic();
+            break;
+        }
+        }
+        gameLogic();
+      }
+      // TODO: When the game is over, alert the final total to the user. We can use the \n character to make a line break.
+      alert("Game over! Your record: \n Wins: " + wins + "\n Ties: " + ties + "\n Losses: " + losses);
+    </script>
+  </body>
+</html>
