@@ -80,6 +80,10 @@
             break;
           default:
             window.alert("Please enter a valid command.");
+            userTurn = window.prompt("Type R for Rock, P for Paper, or S for Scissors.").toLowerCase();
+            if (userTurn.length > 1) {
+              userTurn = userTurn[0];
+            }
             gameLogic();
             break;
         }
